@@ -5,7 +5,7 @@ const UserModel = require("./models/Users")
 
 const app = express()
 
-app.use(cors())
+app.use(cors({ origin: ["http://localhost:5173", "https://crud-mern-xi-five.vercel.app/"] }))
 app.use(express.json())
 
 mongoose.connect("mongodb+srv://root:1234@cluster-1.onphs.mongodb.net/crud")
