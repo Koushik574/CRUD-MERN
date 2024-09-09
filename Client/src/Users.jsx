@@ -9,7 +9,7 @@ const Users = () => {
 
     useEffect(() => {
         // Fetch users from the API
-        axios.get("https://crud-mern-q5dj.onrender.com")
+        axios.get("https://crud-mern-l6go.onrender.com")
             .then(result => {
                 // Ensure result.data is an array before setting state
                 if (Array.isArray(result.data)) {
@@ -23,7 +23,7 @@ const Users = () => {
 
     const handleDelete = (id) => {
         // Delete user from the API
-        axios.delete(`https://crud-mern-q5dj.onrender.com/deleteUser/${id}`)
+        axios.delete(`https://crud-mern-l6go.onrender.com/deleteUser/${id}`)
             .then(res => {
                 console.log(res);
                 // Remove the deleted user from the state without reloading

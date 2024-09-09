@@ -12,7 +12,7 @@ const CreateUser = () => {
     const Submit = (e) => {
         e.preventDefault()
         // axios.post("http://localhost:3000/addUser", {name, email, age})
-        axios.post("https://crud-mern-q5dj.onrender.com/addUser", {name, email, age})
+        axios.post("https://crud-mern-l6go.onrender.com/addUser", {name, email, age})
         .then(result => {
             console.log(result)
             navigate("/")

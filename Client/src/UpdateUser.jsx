@@ -12,7 +12,7 @@ const UpdateUser = () => {
 
     useEffect(() => {
         // axios.get("http://localhost:3000/getUser/" + id)
-        axios.get("https://crud-mern-q5dj.onrender.com/getUser/" + id)
+        axios.get("https://crud-mern-l6go.onrender.com/getUser/" + id)
         .then(result => {
             console.log(result)
             setName(result.data.name)
@@ -25,7 +25,7 @@ const UpdateUser = () => {
     const Update = (e) => {
         e.preventDefault()
         // axios.put("http://localhost:3000/updateUser/" + id, {name, email, age})
-        axios.put("https://crud-mern-q5dj.onrender.com/updateUser/" + id, {name, email, age})
+        axios.put("https://crud-mern-l6go.onrender.com/updateUser/" + id, {name, email, age})
         .then(result => {
             console.log(result)
             navigate("/")
