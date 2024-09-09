@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
@@ -8,7 +11,10 @@ const app = express()
 app.use(cors({ origin: ["http://localhost:5173", "https://crud-mern-xi-five.vercel.app/"] }))
 app.use(express.json())
 
-mongoose.connect("mongodb+srv://root:1234@cluster-1.onphs.mongodb.net/crud")
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true,
+    useUnifiedTopology: true,
+    ssl: true,
+    tlsAllowInvalidCertificates: true,})
 
 app.get("/", (req, res) => {
     UserModel.find({})
@@ -43,6 +49,8 @@ app.delete("/deleteUser/:id", (req, res) => {
       .catch((err) => res.json(err));
   });
 
-app.listen(3000, () =>{
-    console.log("Server is running in port 3000")
-})
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+  });
+  
