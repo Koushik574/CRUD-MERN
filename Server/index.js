@@ -11,10 +11,15 @@ const app = express()
 app.use(cors({ origin: ["http://localhost:5173", "https://crud-mern-xi-five.vercel.app/"] }))
 app.use(express.json())
 
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true,
-    useUnifiedTopology: true,
-    ssl: true,
-    tlsAllowInvalidCertificates: true,})
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
+
 
 app.get("/", (req, res) => {
     UserModel.find({})
