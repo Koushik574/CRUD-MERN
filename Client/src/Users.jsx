@@ -11,13 +11,15 @@ const Users = () => {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3000")
+        // axios.get("http://localhost:3000")
+        axios.get("https://crud-mern-q5dj.onrender.com")
         .then(result => setUsers(result.data))
         .catch(err => console.log(err))
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete("http://localhost:3000/deleteUser/" + id)
+        // axios.delete("http://localhost:3000/deleteUser/" + id)
+        axios.delete("https://crud-mern-q5dj.onrender.com/deleteUser/" + id)
         .then(res => {console.log(res)
             window.location.reload()
         })
